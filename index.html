@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyNest | Student Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#" aria-label="StudyNest home">
+      <span class="logo-mark">✿</span>
+      <span>StudyNest</span>
+    </a>
+    <div class="top-note"><span class="online-dot"></span> Your little corner for getting things done</div>
+    <div class="profile"><span class="profile-avatar">S</span><span>Student</span></div>
+  </header>
+
+  <main class="page">
+    <section class="welcome">
+      <div>
+        <p class="date-label" id="todayLabel">YOUR STUDY SPACE</p>
+        <h1>Make room for <span>good things.</span></h1>
+        <p class="welcome-copy">One task at a time. Add what you need to do, then enjoy checking it off.</p>
+      </div>
+      <div class="welcome-art" aria-hidden="true">
+        <span class="art-sun">✦</span><span class="art-flower">✿</span><span class="art-spark">✧</span>
+      </div>
+    </section>
+
+    <section class="summary-grid" aria-label="Task summary">
+      <article class="summary-card total-card">
+        <div class="summary-icon">▤</div>
+        <p>Total tasks</p>
+        <strong id="totalCount">0</strong>
+      </article>
+      <article class="summary-card pending-card">
+        <div class="summary-icon">◷</div>
+        <p>Still to do</p>
+        <strong id="pendingCount">0</strong>
+      </article>
+      <article class="summary-card done-card">
+        <div class="summary-icon">✓</div>
+        <p>Completed</p>
+        <strong id="completedCount">0</strong>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <section class="panel add-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="small-kicker">START HERE</p>
+            <h2>Add a new task</h2>
+          </div>
+          <span class="heading-flower">✿</span>
+        </div>
+        <form id="taskForm">
+          <label for="taskName">What do you need to do?</label>
+          <input id="taskName" type="text" placeholder="e.g. Revise Chapter 3" maxlength="70" required>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="taskSubject">Subject</label>
+              <select id="taskSubject">
+                <option value="General">General</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="English">English</option>
+                <option value="Physics">Physics</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="taskPriority">Priority</label>
+              <select id="taskPriority">
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+          </div>
+          <label for="taskDate">Due date</label>
+          <input id="taskDate" type="date">
+          <button class="add-button" type="submit">＋ Add task</button>
+          <p class="form-hint">Tip: Start with one small task. You've got this.</p>
+        </form>
+      </section>
+
+      <section class="panel tasks-panel">
+        <div class="tasks-heading">
+          <div>
+            <p class="small-kicker">YOUR CHECKLIST</p>
+            <h2>My tasks <span class="tiny-count" id="listCount">0</span></h2>
+          </div>
+          <button class="clear-button" id="clearCompletedBtn" type="button">Clear completed</button>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button class="filter-button active" data-filter="all" type="button">All</button>
+          <button class="filter-button" data-filter="pending" type="button">Pending</button>
+          <button class="filter-button" data-filter="completed" type="button">Completed</button>
+        </div>
+
+        <div id="taskList" class="task-list" aria-live="polite"></div>
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">☁</div>
+          <h3>Nothing on your list yet</h3>
+          <p>Add your first task using the form. Your future self will thank you.</p>
+        </div>
+      </section>
+    </section>
+    <footer>Made for students, one little task at a time. <span>StudyNest · Student project</span></footer>
+    <div id="toast" class="toast hidden" role="status"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
